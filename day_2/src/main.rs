@@ -18,11 +18,17 @@ fn main() -> anyhow::Result<()> {
 
     // process in parallel with rayon
     let safe_reports = day_2::solve_parallel(&lines);
-    println!("Number of safe reports: {}", safe_reports);
+    println!("Number of safe reports without damper: {}", safe_reports);
 
     // non parallel version
     let safe_reports = day_2::solve_sequential(&lines);
     println!("Number of safe reports: {}", safe_reports);
+
+    // safe reports with damper
+    let safe_reports = day_2::solve_with_dampener(&lines);
+    println!("Number of save reports withh damper: {}", safe_reports);
+
+    println!("Number of reports: {}", lines.len());
 
     Ok(())
 }
